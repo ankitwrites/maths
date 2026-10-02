@@ -1,5 +1,10 @@
 #program to calculate the value of pi using Leibniz series, Machin-Like formula and Monte Carlo Estimation
 
+#no of iterations = 1000
+
+pi = 3.141592653589793
+print("pi = {}".format(pi))
+
 #------------------------------------------------
 
 #Leibniz Series
@@ -11,7 +16,11 @@ S = 0
 for k in range (0, 1000):
     S = S + (-1)**k/(2*k+1)
 
-print("(Leibiz Series) pi = {}".format(4*S))
+leibniz = 4 * S
+error = abs(pi - leibniz)/pi * 100
+
+print("(Leibniz Series) pi = {}".format(leibniz))
+print("Error% = {}".format(error))
 
 #------------------------------------------------
 
@@ -27,7 +36,11 @@ for k in range (0, 1000):
     arctan5 = arctan5 + (-1)**k*(1/5)**(2*k+1)/(2*k+1)
     arctan239 =  arctan239 + (-1)**k*(1/239)**(2*k+1)/(2*k+1)
 
-print("(Machin-Like Formula) pi = {}".format(16*arctan5 - 4*arctan239))
+machin = 16*arctan5 - 4*arctan239
+error = abs(pi - machin)/pi * 100
+
+print("(Machin-Like Formula) pi = {}".format(machin))
+print("Error% = {}".format(error))
 
 #------------------------------------------------
 
@@ -47,4 +60,9 @@ for i in range(0, total):
     if (x**2 + y ** 2 <= 1):
         inside = inside + 1
 
-print("(Monte Carlo Estimation) pi = {}".format(4*inside/total))
+
+montecarlo = 4*inside/total
+error = abs(pi-montecarlo)/pi*100
+
+print("(Monte Carlo Estimation) pi = {}".format(montecarlo))
+print("Error% = {}".format(error))
